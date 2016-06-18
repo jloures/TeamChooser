@@ -9,22 +9,11 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.capstone.teamchooser.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="My Dick"
-        android:id="@+id/textView2"
-        android:layout_marginTop="50dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
     <Switch
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="preassign"
         android:id="@+id/switch1"
-        android:layout_below="@+id/textView2"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="54dp"
         android:checked="false" />
