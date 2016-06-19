@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">TeamChooser</string>
+    <string name="game_list">Game List</string>
+    <string name="create_game">Create Game</string>
+    <string name="get_info_app">Get Info</string>
+    <string name="main_activity_info_child">App Info</string>
 </resources>
