@@ -1,11 +1,17 @@
 package com.example.capstone.teamchooser;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import com.example.capstone.teamchooser.helperfunctions.GenerateInstructions;
+import com.example.capstone.teamchooser.helperfunctions.Instruction;
 
 import java.util.ArrayList;
 
@@ -13,10 +19,10 @@ public class AppInfo extends AppCompatActivity {
 
     //This is our toolbar, which has the title 'App Info' and a back button that is white
     private Toolbar m_toolbar;
-    //This is an array with the default list of the how tos of the app
-    private ArrayList<String> m_listOfHowTos;
+    //This is an array with the default list of instructions of the app
+    private ArrayList<Instruction> m_listOfInstructions;
     //The array adapter to hold all of our items
-    private ArrayAdapter<String> m_adapter;
+    private ArrayAdapter<Instruction> m_adapter;
     //Since we dont inherit from ListActivity, we need a reference to our default List view
     private ListView m_listView;
 
@@ -34,21 +40,19 @@ public class AppInfo extends AppCompatActivity {
         ab.setDisplayHomeAsUpEnabled(true);
         //Making the back button custom ( in this case changing the color to white )
         ab.setHomeAsUpIndicator(R.drawable.back_button_white);
-        m_listOfHowTos = populateHowTosList();
-        m_adapter = new ArrayAdapter<String>(
+        //Populating list with how tos ( a.k.a instructions )
+        m_listOfInstructions = populateInstructionsList();
+        m_adapter = new ArrayAdapter<>(
                 this,
                 android.R.layout.simple_expandable_list_item_1,
-                m_listOfHowTos
+                m_listOfInstructions
         );
         m_listView = (ListView) findViewById(R.id.app_info_list);
         m_listView.setAdapter(m_adapter);
     }
 
-    private ArrayList<String> populateHowTosList() {
-        ArrayList<String> list = new ArrayList<String>();
-        for( int i = 0; i < 30; i++) {
-            list.add("My name is " + i);
-        }
-        return list;
+    private ArrayList<Instruction> populateInstructionsList() {
+        GenerateInstructions.generateSimple("First Instruction", "Welcome");
+        return GenerateInstructions.getAllInstructions();
     }
 }
