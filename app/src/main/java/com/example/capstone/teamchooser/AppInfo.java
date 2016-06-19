@@ -18,6 +18,5 @@ public class AppInfo extends AppCompatActivity {
         setSupportActionBar(m_toolbar);
         ActionBar ab = getSupportActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
-
     }
 }
