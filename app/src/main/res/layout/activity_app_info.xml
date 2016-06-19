@@ -11,4 +11,10 @@
         android:id="@+id/app_info_toolbar"
         app:title="@string/app_info"
         app:titleTextColor="@android:color/white" />
+    <ListView
+        android:id="@+id/app_info_list"
+        android:drawSelectorOnTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/app_info_toolbar" />
 </RelativeLayout>
