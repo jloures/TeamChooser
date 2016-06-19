@@ -7,9 +7,9 @@
 
    <android.support.v7.widget.Toolbar
        android:id="@+id/create_game_toolbar"
-       android:layout_width="match_parent"
-       android:layout_height="?attr/actionBarSize"
-       android:elevation="4dp"
-       app:title="Game List"/>
+       style="@style/ActionBarBaseTheme"
+       app:title="@string/game_list"
+       app:titleTextColor="@android:color/white"
+       android:titleTextColor="@android:color/white" />
 
 </LinearLayout>

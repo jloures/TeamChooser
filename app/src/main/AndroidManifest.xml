@@ -17,7 +17,7 @@
         </activity>
         <activity
             android:name=".AppInfo"
-            android:label="@string/main_activity_info_child"
+            android:label="@string/app_info"
             android:parentActivityName=".MainActivity"></activity>
     </application>
 

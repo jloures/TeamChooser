@@ -8,12 +8,12 @@
         android:id="@+id/get_info"
         android:orderInCategory="100"
         android:title="@string/get_info_app"
-        android:icon="@drawable/get_info"
+        android:icon="@drawable/get_info_white"
         app:showAsAction="always" />
     <item
         android:id="@+id/add_game"
         android:orderInCategory="100"
         android:title="@string/create_game"
-        android:icon="@drawable/add_new"
+        android:icon="@drawable/add_new_white"
         app:showAsAction="always" />
 </menu>

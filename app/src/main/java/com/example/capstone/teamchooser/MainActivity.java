@@ -18,7 +18,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         m_toolbar = (Toolbar) findViewById(R.id.create_game_toolbar);
         setSupportActionBar(m_toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
     }
 
     @Override
