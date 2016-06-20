@@ -1,4 +1,4 @@
-package com.example.capstone.teamchooser.helperfunctions;
+package com.example.capstone.teamchooser.helperClasses;
 
 import java.io.Serializable;
 
@@ -7,15 +7,18 @@ public class Instruction implements Serializable{
     private String m_instructionTitle = null;
     private String m_instructionDescription = null;
 
-    public void setTitle( String name ) {
-        this.m_instructionTitle = name;
+    public Instruction(String title, String description) {
+        this.m_instructionDescription = description;
+        this.m_instructionTitle = title;
+    }
+    public Instruction() {}
+    public void setTitle( String title ) {
+        this.m_instructionTitle = title;
     }
     public String getTitle() {
         return this.m_instructionTitle;
     }
-    public void setDescription( String description ) {
-        this.m_instructionDescription = description;
-    }
+    public void setDescription( String description ) { this.m_instructionDescription = description; }
     public String getDescription() {
         return this.m_instructionDescription;
     }

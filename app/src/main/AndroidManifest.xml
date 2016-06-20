@@ -6,7 +6,7 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity
             android:name=".MainActivity"
             android:label="@string/game_list">
@@ -19,12 +19,11 @@
         <activity
             android:name=".AppInfoListActivity"
             android:label="@string/app_info_list"
-            android:parentActivityName=".MainActivity">
-        </activity>
-        <activity android:name=".InstructionActivity"
-            android:parentActivityName=".AppInfoListActivity">
-
-        </activity>
+            android:parentActivityName=".MainActivity"></activity>
+        <activity
+            android:name=".InstructionActivity"
+            android:parentActivityName=".AppInfoListActivity"></activity>
+        <activity android:name=".AddGameActivity"></activity>
     </application>
 
 </manifest>
