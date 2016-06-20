@@ -8,10 +8,13 @@ import java.io.*;
 //We will be using this class to read the instructions from a file and add it
 //the different sections to the list in AppInfo
 
-public class GenerateInstructions implements Serializable{
+public class GenerateInstructions {
     private static ArrayList<Instruction> m_instructionsList = null;
 
     public static ArrayList<Instruction> getAllInstructions() {
+        if( m_instructionsList == null ) {
+            generateSimple("Intruction Title", "Instruction Description");
+        }
         return m_instructionsList;
     }
 
@@ -21,7 +24,7 @@ public class GenerateInstructions implements Serializable{
 
     //This is a method for adding new instructions directly from a different class and with no
     //need for having a file
-    public static ArrayList<Instruction> generateSimple( String title, String description ) {
+    public static void generateSimple( String title, String description ) {
         if ( m_instructionsList == null ) {
             m_instructionsList = new ArrayList<>();
         }
@@ -31,6 +34,5 @@ public class GenerateInstructions implements Serializable{
         newInstruction.setDescription( description );
 
         m_instructionsList.add( newInstruction );
-        return m_instructionsList;
     }
 }

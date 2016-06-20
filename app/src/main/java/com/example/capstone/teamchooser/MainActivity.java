@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void callAppInfoActivity() {
-        Intent intent = new Intent(this, AppInfo.class);
+        Intent intent = new Intent(this, AppInfoListActivity.class);
         startActivity(intent);
     }
 }

@@ -17,9 +17,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".AppInfo"
-            android:label="@string/app_info"
-            android:parentActivityName=".MainActivity" />
+            android:name=".AppInfoListActivity"
+            android:label="@string/app_info_list"
+            android:parentActivityName=".MainActivity">
+        </activity>
+        <activity android:name=".InstructionActivity"
+            android:parentActivityName=".AppInfoListActivity">
+
+        </activity>
     </application>
 
 </manifest>

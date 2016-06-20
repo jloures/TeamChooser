@@ -1,7 +1,9 @@
 package com.example.capstone.teamchooser.helperfunctions;
 
+import java.io.Serializable;
+
 //Simple class just for holding name and instruction description
-public class Instruction {
+public class Instruction implements Serializable{
     private String m_instructionTitle = null;
     private String m_instructionDescription = null;
 

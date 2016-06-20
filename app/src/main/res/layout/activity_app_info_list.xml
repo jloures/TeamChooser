@@ -4,17 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.capstone.teamchooser.AppInfo">
+    tools:context="com.example.capstone.teamchooser.AppInfoListActivity">
 
     <android.support.v7.widget.Toolbar
         style="@style/ActionBarBaseTheme"
-        android:id="@+id/app_info_toolbar"
-        app:title="@string/app_info"
+        android:id="@+id/app_info_list_toolbar"
+        app:title="@string/app_info_list"
         app:titleTextColor="@android:color/white" />
-    <ListView
+   <ListView
         android:id="@+id/app_info_list"
         android:drawSelectorOnTop="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/app_info_toolbar" />
+        android:layout_below="@+id/app_info_list_toolbar" />
 </RelativeLayout>
