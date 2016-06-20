@@ -40,6 +40,24 @@ public class MainActivity extends TeamChooserActivity {
     }
 
     @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+
+            case R.id.add_game:
+                //We should go to another activity to add the game
+                break;
+
+            case R.id.get_info:
+                this.callAppInfoActivity();
+                break;
+
+            default:
+                break;
+        }
+        return true;
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.main_menu, menu);
