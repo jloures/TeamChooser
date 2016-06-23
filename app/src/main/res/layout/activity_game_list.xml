@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+   <android.support.v7.widget.Toolbar
+       style="@style/ActionBarBaseTheme"
+       android:id="@+id/game_list_toolbar"
+       app:title="@string/game_list"
+       app:titleTextColor="@android:color/white"
+       android:titleTextColor="@android:color/white" />
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/game_list_toolbar">
+        <ListView
+           android:id="@+id/game_list_list_view"
+           android:drawSelectorOnTop="true"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_alignParentBottom="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/no_games_text"
+            android:id="@+id/no_games_text_view"
+            android:layout_gravity="center_horizontal|top"
+            android:layout_marginTop="200dip" />
+    </FrameLayout>
+
+</RelativeLayout>

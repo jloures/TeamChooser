@@ -4,4 +4,5 @@
     <string name="create_game">Create Game</string>
     <string name="get_info_app">Get Info</string>
     <string name="app_info_list">App Info</string>
+    <string name="no_games_text">No games found! \n\n Please add one</string>
 </resources>

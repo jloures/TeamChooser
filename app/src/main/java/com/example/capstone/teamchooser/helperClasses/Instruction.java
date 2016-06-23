@@ -24,6 +24,8 @@ public class Instruction implements Serializable{
     }
 
     //Nothing fancy here, just returning the title
+    //We need to override this because by default the Adapter will call
+    //the .toString() method on all elements that are present in the menu
     @Override
     public String toString() {
         return this.m_instructionTitle;

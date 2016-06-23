@@ -8,7 +8,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity
-            android:name=".MainActivity"
+            android:name=".GameListActivity"
             android:label="@string/game_list">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,11 +19,12 @@
         <activity
             android:name=".AppInfoListActivity"
             android:label="@string/app_info_list"
-            android:parentActivityName=".MainActivity"></activity>
+            android:parentActivityName=".GameListActivity" />
         <activity
             android:name=".InstructionActivity"
-            android:parentActivityName=".AppInfoListActivity"></activity>
-        <activity android:name=".AddGameActivity"></activity>
+            android:parentActivityName=".AppInfoListActivity" />
+        <activity android:name=".AddGameActivity" />
+        <activity android:name=".GameActivity"></activity>
     </application>
 
 </manifest>
