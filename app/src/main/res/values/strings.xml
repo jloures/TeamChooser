@@ -5,4 +5,12 @@
     <string name="get_info_app">Get Info</string>
     <string name="app_info_list">App Info</string>
     <string name="no_games_text">No games found! \n\n Please add one</string>
+    <string name="game_name">Game Name:</string>
+    <string name="team_a_name">Team A Name:</string>
+    <string name="team_b_name">Team B Name:</string>
+    <string name="balance_offence_defence_text">Balance Offence-Defence Count</string>
+    <string name="use_super_optimizer_text">Use Super Optimizer</string>
+    <string name="save_game_text">Save</string>
+    <string name="duplicate_game_text">Duplicate</string>
+    <string name="delete_game_menu_item_title">Delete Game</string>
 </resources>

@@ -2,7 +2,6 @@ package com.example.capstone.teamchooser;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
 import android.util.TypedValue;
 import android.view.Menu;
@@ -29,7 +28,7 @@ public class GameListActivity extends TeamChooserActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
-        
+
         //Telling android which layout is the one we're supposed to be showing for
         //this activity
         setContentView(R.layout.activity_game_list);
@@ -38,14 +37,8 @@ public class GameListActivity extends TeamChooserActivity {
         //Setting it as our default toolbar
         setSupportActionBar(m_toolbar);
 
-        //All we are doing here is to set up the back button
-        ActionBar ab = getSupportActionBar();
-        ab.setDisplayHomeAsUpEnabled(true);
-        //Making the back button custom ( in this case changing the color to white )
-        ab.setHomeAsUpIndicator(R.drawable.back_button_white);
         //Populating list with existing games
         m_listOfGames = new ArrayList<>();
-
 
         //Find our TextView element, we need a reference to it
         //to either hide it or set a custom font size defined in the superclass
@@ -57,7 +50,7 @@ public class GameListActivity extends TeamChooserActivity {
         } else {
             addNewGameText.setTextSize(
                     TypedValue.COMPLEX_UNIT_DIP,
-                    this.m_fontSize * (float)1.2
+                    this.m_fontSize * (float)1.4
             );
         }
 
@@ -84,7 +77,7 @@ public class GameListActivity extends TeamChooserActivity {
                 //position is the index of our object in the list
                 Game g = (Game) parent.getItemAtPosition(position);
                 //adding some extra info to be passed to the next activity
-                Intent intent = new Intent( getBaseContext(), GameActivity.class );
+                Intent intent = new Intent( getBaseContext(), CreateOrEditGameActivity.class );
                 //TODO add info to be passed to the next activity
                 startActivity(intent);
             }
@@ -96,7 +89,7 @@ public class GameListActivity extends TeamChooserActivity {
         switch (item.getItemId()) {
 
             case R.id.add_game:
-                this.callAddGameActivity();
+                this.callCreateGameActivity();
                 break;
 
             case R.id.get_info:
@@ -113,7 +106,7 @@ public class GameListActivity extends TeamChooserActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.main_menu, menu);
+        inflater.inflate(R.menu.game_list_menu, menu);
         return true;
     }
 
@@ -122,8 +115,8 @@ public class GameListActivity extends TeamChooserActivity {
         startActivity(intent);
     }
 
-    private void callAddGameActivity() {
-        Intent intent = new Intent(this, AddGameActivity.class);
+    private void callCreateGameActivity() {
+        Intent intent = new Intent(this, CreateOrEditGameActivity.class);
         startActivity(intent);
     }
 }
