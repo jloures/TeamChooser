@@ -132,7 +132,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dip"
             android:weightSum="1"
-            android:id="@+id/use_super_optimizer"
+            android:id="@+id/use_super_optimizer_layout"
             android:layout_below="@id/balance_offence_defence_layout"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dip">
@@ -161,7 +161,7 @@
             android:layout_height="wrap_content"
             android:text="@string/save_game_text"
             android:id="@+id/save_game_button"
-            android:layout_below="@+id/use_super_optimizer"
+            android:layout_below="@+id/use_super_optimizer_layout"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="25dip" />
 

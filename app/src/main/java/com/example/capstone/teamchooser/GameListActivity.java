@@ -14,6 +14,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.capstone.teamchooser.helperClasses.Game;
+import com.example.capstone.teamchooser.helperClasses.GamesManager;
 import com.example.capstone.teamchooser.helperClasses.TeamChooserActivity;
 
 import java.util.ArrayList;
@@ -38,7 +39,7 @@ public class GameListActivity extends TeamChooserActivity {
         setSupportActionBar(m_toolbar);
 
         //Populating list with existing games
-        m_listOfGames = new ArrayList<>();
+        m_listOfGames = GamesManager.getAllGames();
 
         //Find our TextView element, we need a reference to it
         //to either hide it or set a custom font size defined in the superclass
@@ -49,8 +50,8 @@ public class GameListActivity extends TeamChooserActivity {
            addNewGameText.setVisibility(View.GONE);
         } else {
             addNewGameText.setTextSize(
-                    TypedValue.COMPLEX_UNIT_DIP,
-                    this.m_fontSize * (float)1.4
+                TypedValue.COMPLEX_UNIT_DIP,
+                this.m_fontSize * (float)1.4
             );
         }
 
@@ -77,8 +78,14 @@ public class GameListActivity extends TeamChooserActivity {
                 //position is the index of our object in the list
                 Game g = (Game) parent.getItemAtPosition(position);
                 //adding some extra info to be passed to the next activity
-                Intent intent = new Intent( getBaseContext(), CreateOrEditGameActivity.class );
-                //TODO add info to be passed to the next activity
+                Intent intent = new Intent( GameListActivity.this, CreateOrEditGameActivity.class );
+                //TODO pass the game object instead of doing this
+                intent.putExtra("gameId", Integer.toString(g.getGameId()));
+                intent.putExtra("gameName", g.getGameName());
+                intent.putExtra("teamAName", g.getTeamAName());
+                intent.putExtra("teamBName", g.getTeamBName());
+                intent.putExtra("isUsingSO", g.isUsingSO() ? "true" : "false");
+                intent.putExtra("isBODCount", g.isBODCount() ? "true" : "false");
                 startActivity(intent);
             }
         });

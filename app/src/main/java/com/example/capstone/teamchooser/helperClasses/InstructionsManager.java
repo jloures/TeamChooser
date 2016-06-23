@@ -5,7 +5,7 @@ import java.util.ArrayList;
 //We will be using this class to read the instructions from a file and add it
 //the different sections to the list in AppInfo
 
-public class GenerateInstructions {
+public class InstructionsManager {
     private static ArrayList<Instruction> m_instructionsList = null;
 
     public static ArrayList<Instruction> getAllInstructions() {
