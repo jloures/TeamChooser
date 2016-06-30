@@ -13,4 +13,5 @@
     <string name="save_game_text">Save</string>
     <string name="duplicate_game_text">Duplicate</string>
     <string name="delete_game_menu_item_title">Delete Game</string>
+    <string name="use_o_d_ratings_text">Balance O-D Ratings</string>
 </resources>

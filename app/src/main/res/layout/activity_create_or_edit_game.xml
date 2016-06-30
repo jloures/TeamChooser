@@ -7,14 +7,14 @@
     tools:context=".CreateOrEditGameActivity">
     <android.support.v7.widget.Toolbar
         style="@style/ActionBarBaseTheme"
-        android:id="@+id/create_game_toolbar"
+        android:id="@+id/create_game_toolbar_top"
         app:titleTextColor="@android:color/white" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/create_game_toolbar">
+        android:layout_below="@+id/create_game_toolbar_top">
 
         <LinearLayout
             android:orientation="horizontal"
@@ -22,7 +22,7 @@
             android:layout_height="50dip"
             android:weightSum="1"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="60dip"
+            android:layout_marginTop="40dip"
             android:id="@+id/game_name_layout">
 
             <TextView
@@ -156,23 +156,64 @@
 
         </LinearLayout>
 
-        <Button
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="50dip"
+            android:weightSum="1"
+            android:id="@+id/balance_o_d_ratings_layout"
+            android:layout_below="@id/use_super_optimizer_layout"
+            android:animateLayoutChanges="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dip">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/use_o_d_ratings_text"
+                android:id="@+id/balance_o_d_ratings_text_view"
+                android:layout_gravity="center"
+                android:layout_marginLeft="60dip" />
+
+            <Switch
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/balance_o_d_ratings_switch"
+                android:checked="false"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dip" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <android.support.v7.widget.Toolbar
+        style="@style/ActionBarBaseTheme"
+        android:id="@+id/create_game_toolbar_bottom"
+        app:titleTextColor="@android:color/white"
+        android:layout_alignParentBottom="true">
+        <RelativeLayout android:layout_height="match_parent"
+            android:layout_width="match_parent" >
+        <TextView
+            android:id="@+id/save_game_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/save_game_text"
-            android:id="@+id/save_game_button"
-            android:layout_below="@+id/use_super_optimizer_layout"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="25dip" />
-
-        <Button
+            android:textSize="25sp"
+            android:gravity="left"
+            android:layout_marginTop="10dip" />
+        <TextView
+            android:id="@+id/duplicate_game_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/duplicate_game_text"
-            android:id="@+id/duplicate_game_button"
-            android:layout_below="@+id/save_game_button"
-            android:layout_centerHorizontal="true"
+            android:textSize="25sp"
+            android:singleLine="true"
+            android:gravity="right"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="10dip"
             android:layout_marginTop="10dip" />
-    </RelativeLayout>
-
+        </RelativeLayout>
+        </android.support.v7.widget.Toolbar>
 </RelativeLayout>

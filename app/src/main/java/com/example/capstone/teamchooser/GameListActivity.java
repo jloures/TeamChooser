@@ -79,13 +79,14 @@ public class GameListActivity extends TeamChooserActivity {
                 Game g = (Game) parent.getItemAtPosition(position);
                 //adding some extra info to be passed to the next activity
                 Intent intent = new Intent( GameListActivity.this, CreateOrEditGameActivity.class );
-                //TODO pass the game object instead of doing this
+                //TODO pass the Game object instead of doing this
                 intent.putExtra("gameId", Integer.toString(g.getGameId()));
                 intent.putExtra("gameName", g.getGameName());
                 intent.putExtra("teamAName", g.getTeamAName());
                 intent.putExtra("teamBName", g.getTeamBName());
                 intent.putExtra("isUsingSO", g.isUsingSO() ? "true" : "false");
                 intent.putExtra("isBODCount", g.isBODCount() ? "true" : "false");
+                intent.putExtra("isBalanceODRatings", g.isUsingBalanceODRatings() ? "true" : "false");
                 startActivity(intent);
             }
         });

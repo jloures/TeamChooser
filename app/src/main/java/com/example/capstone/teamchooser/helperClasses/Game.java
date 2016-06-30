@@ -9,6 +9,7 @@ public class Game extends GamesManager {
     private String m_teamBName = null;
     private Boolean m_isUsingSO;
     private Boolean m_isBODCount;
+    private Boolean m_isUsingBalanceODRatings;
     private Integer m_gameId;
 
     public Game(
@@ -16,14 +17,25 @@ public class Game extends GamesManager {
         String teamAName,
         String teamBName,
         Boolean isUsingSO,
-        Boolean isBODCount
+        Boolean isBODCount,
+        Boolean isUsingBalanceODRatings
     ) {
         this.m_gameName = gameName;
         this.m_teamAName = teamAName;
         this.m_teamBName = teamBName;
         this.m_isBODCount = isBODCount;
         this.m_isUsingSO = isUsingSO;
+        this.m_isUsingBalanceODRatings = isUsingBalanceODRatings;
         this.m_gameId = super.getNewGameId();
+    }
+
+
+    public Boolean isUsingBalanceODRatings() {
+        return m_isUsingBalanceODRatings;
+    }
+
+    public void setUsingBalanceODRatings(Boolean m_isUsingBalanceODRatings) {
+        this.m_isUsingBalanceODRatings = m_isUsingBalanceODRatings;
     }
 
     public int getGameId() {
@@ -73,13 +85,15 @@ public class Game extends GamesManager {
         String teamAName,
         String teamBName,
         Boolean isUsingSO,
-        Boolean isBODCount
+        Boolean isBODCount,
+        Boolean isUsingBalanceODRatings
     ) {
         this.m_gameName = gameName;
         this.m_teamAName = teamAName;
         this.m_teamBName = teamBName;
         this.m_isBODCount = isBODCount;
         this.m_isUsingSO = isUsingSO;
+        this.m_isUsingBalanceODRatings = isUsingBalanceODRatings;
     }
 
     @Override
