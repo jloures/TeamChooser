@@ -2,7 +2,7 @@ package com.example.capstone.teamchooser.helperClasses;
 
 
 //Pretty straightforward no need for comments here :P
-public class Game extends GamesManager {
+public class Game {
 
     private String m_gameName = null;
     private String m_teamAName = null;
@@ -10,7 +10,7 @@ public class Game extends GamesManager {
     private Boolean m_isUsingSO;
     private Boolean m_isBODCount;
     private Boolean m_isUsingBalanceODRatings;
-    private Integer m_gameId;
+    private long m_gameId;
 
     public Game(
         String gameName,
@@ -26,9 +26,7 @@ public class Game extends GamesManager {
         this.m_isBODCount = isBODCount;
         this.m_isUsingSO = isUsingSO;
         this.m_isUsingBalanceODRatings = isUsingBalanceODRatings;
-        this.m_gameId = super.getNewGameId();
     }
-
 
     public Boolean isUsingBalanceODRatings() {
         return m_isUsingBalanceODRatings;
@@ -38,8 +36,12 @@ public class Game extends GamesManager {
         this.m_isUsingBalanceODRatings = m_isUsingBalanceODRatings;
     }
 
-    public int getGameId() {
-        return this.m_gameId;
+    public long getGameId() {
+        return m_gameId;
+    }
+
+    public void setGameId(long m_gameId) {
+        this.m_gameId = m_gameId;
     }
 
     public String getGameName() {
@@ -94,11 +96,5 @@ public class Game extends GamesManager {
         this.m_isBODCount = isBODCount;
         this.m_isUsingSO = isUsingSO;
         this.m_isUsingBalanceODRatings = isUsingBalanceODRatings;
-    }
-
-    @Override
-    public String toString() {
-        //TODO override the way the view will be shown for this class inside the adapter
-        return this.m_gameName;
     }
 }

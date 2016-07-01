@@ -19,7 +19,6 @@ import android.widget.TextView;
 import com.example.capstone.teamchooser.helperClasses.Game;
 import com.example.capstone.teamchooser.helperClasses.GamesManager;
 
-import java.util.ArrayList;
 import java.util.Objects;
 
 public class CreateOrEditGameActivity extends AppCompatActivity {
@@ -44,7 +43,7 @@ public class CreateOrEditGameActivity extends AppCompatActivity {
     //Boolean containing switch value for use o-d ratings
     private Boolean m_isUsingBalanceODRatings = false;
     //Integer containing the gameId
-    private Integer m_gameId = null;
+    private long m_gameId;
     //Linear layout with hidden switch
     private LinearLayout m_layoutWithODBalance = null;
 
@@ -137,7 +136,6 @@ public class CreateOrEditGameActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             // Respond to the action bar's Up/Home button
             case android.R.id.home:
-                ArrayList<Game> games = GamesManager.getAllGames();
                 Intent intent = new Intent(this, GameListActivity.class);
                 startActivity(intent);
                 break;
@@ -157,7 +155,7 @@ public class CreateOrEditGameActivity extends AppCompatActivity {
     }
 
     private void deleteGame() {
-        GamesManager.deleteGameById(m_gameId);
+        GamesManager.deleteGameById( m_gameId );
         this.returnToGameList();
     }
 
@@ -209,7 +207,7 @@ public class CreateOrEditGameActivity extends AppCompatActivity {
         if(extras == null) {
             return;
         }
-        m_gameId = Integer.parseInt(extras.getString("gameId"));
+        m_gameId = Long.parseLong(extras.getString("gameId"));
         m_gameName = extras.getString("gameName");
         m_teamAName = extras.getString("teamAName");
         m_teamBName = extras.getString("teamBName");

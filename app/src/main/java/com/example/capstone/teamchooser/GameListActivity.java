@@ -9,7 +9,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -24,7 +23,6 @@ public class GameListActivity extends TeamChooserActivity {
     private Toolbar m_toolbar = null;
     private ListView m_listView = null;
     private ArrayList<Game> m_listOfGames = null;
-    private ArrayAdapter<Game> m_adapter = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,35 +57,16 @@ public class GameListActivity extends TeamChooserActivity {
 
     private void setUpListView() {
         //we have to create an adapter that will take care of putting our 'objects'
-        //into a view inside listView. Nothing custom here. Just had to override toString() of
-        //Instruction because this is the class that the adapter calls by default to populate the
-        //view with
-        m_adapter = new ArrayAdapter<>(
-                this,
-                android.R.layout.simple_expandable_list_item_1,
-                m_listOfGames
-        );
+        //into a view inside listView.
         //Grab our ListView from the xml file
         m_listView = (ListView) findViewById(R.id.game_list_list_view);
         //Set the adapter that we want to use for our view
-        m_listView.setAdapter(m_adapter);
+        m_listView.setAdapter(new GamesManager(this));
         //add a click handler for every item in the list
         m_listView.setOnItemClickListener( new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //position is the index of our object in the list
-                Game g = (Game) parent.getItemAtPosition(position);
-                //adding some extra info to be passed to the next activity
-                Intent intent = new Intent( GameListActivity.this, CreateOrEditGameActivity.class );
-                //TODO pass the Game object instead of doing this
-                intent.putExtra("gameId", Integer.toString(g.getGameId()));
-                intent.putExtra("gameName", g.getGameName());
-                intent.putExtra("teamAName", g.getTeamAName());
-                intent.putExtra("teamBName", g.getTeamBName());
-                intent.putExtra("isUsingSO", g.isUsingSO() ? "true" : "false");
-                intent.putExtra("isBODCount", g.isBODCount() ? "true" : "false");
-                intent.putExtra("isBalanceODRatings", g.isUsingBalanceODRatings() ? "true" : "false");
-                startActivity(intent);
+                return;
             }
         });
     }
