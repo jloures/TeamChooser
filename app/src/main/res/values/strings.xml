@@ -15,4 +15,7 @@
     <string name="delete_game_menu_item_title">Delete Game</string>
     <string name="use_o_d_ratings_text">Balance O-D Ratings</string>
     <string name="game_info">game_info</string>
+    <string name="no_players_text">No players found!\n\n Please add one</string>
+    <string name="add_player">Add player</string>
+    <string name="make_teams">Make teams</string>
 </resources>

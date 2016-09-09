@@ -23,8 +23,11 @@
         <activity
             android:name=".InstructionActivity"
             android:parentActivityName=".AppInfoListActivity" />
-        <activity android:name=".CreateOrEditGameActivity"
-            android:label="Create or Edit Game"></activity>
+        <activity
+            android:name=".CreateOrEditGameActivity"
+            android:label="Create or Edit Game" />
+        <activity android:name=".PlayerListActivity" />
+        <activity android:name=".CreateOrEditPlayerActivity"></activity>
     </application>
 
 </manifest>

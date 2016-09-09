@@ -8,13 +8,12 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.capstone.teamchooser.helperClasses.Game;
-import com.example.capstone.teamchooser.helperClasses.GamesManager;
-import com.example.capstone.teamchooser.helperClasses.TeamChooserActivity;
+import com.example.capstone.teamchooser.helper_classes.Game;
+import com.example.capstone.teamchooser.helper_classes.GameListManager;
+import com.example.capstone.teamchooser.helper_classes.TeamChooserActivity;
 
 import java.util.ArrayList;
 
@@ -37,38 +36,27 @@ public class GameListActivity extends TeamChooserActivity {
         setSupportActionBar(m_toolbar);
 
         //Populating list with existing games
-        m_listOfGames = GamesManager.getAllGames();
+        m_listOfGames = GameListManager.getAllGames();
 
         //Find our TextView element, we need a reference to it
         //to either hide it or set a custom font size defined in the superclass
         TextView addNewGameText = (TextView) findViewById(R.id.no_games_text_view);
         //We have to check and see if we have any games
         if( m_listOfGames.size() != 0 ) {
-            this.setUpListView();
+           //we have to create an adapter that will take care of putting our 'objects'
+           //into a view inside listView.
+           //Grab our ListView from the xml file
+           m_listView = (ListView) findViewById(R.id.game_list_list_view);
+           //Set the adapter that we want to use for our view
+           m_listView.setAdapter(new GameListManager(this));
            addNewGameText.setVisibility(View.GONE);
         } else {
             addNewGameText.setTextSize(
                 TypedValue.COMPLEX_UNIT_DIP,
-                this.m_fontSize * (float)1.4
+                this.getFontSize() * (float)1.4
             );
         }
 
-    }
-
-    private void setUpListView() {
-        //we have to create an adapter that will take care of putting our 'objects'
-        //into a view inside listView.
-        //Grab our ListView from the xml file
-        m_listView = (ListView) findViewById(R.id.game_list_list_view);
-        //Set the adapter that we want to use for our view
-        m_listView.setAdapter(new GamesManager(this));
-        //add a click handler for every item in the list
-        m_listView.setOnItemClickListener( new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                return;
-            }
-        });
     }
 
     @Override

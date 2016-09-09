@@ -10,9 +10,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.example.capstone.teamchooser.helperClasses.InstructionsManager;
-import com.example.capstone.teamchooser.helperClasses.Instruction;
-import com.example.capstone.teamchooser.helperClasses.TeamChooserActivity;
+import com.example.capstone.teamchooser.helper_classes.InstructionsListManager;
+import com.example.capstone.teamchooser.helper_classes.Instruction;
+import com.example.capstone.teamchooser.helper_classes.TeamChooserActivity;
 
 import java.util.ArrayList;
 
@@ -42,7 +42,7 @@ public class AppInfoListActivity extends TeamChooserActivity {
         //Making the back button custom ( in this case changing the color to white )
         ab.setHomeAsUpIndicator(R.drawable.back_button_white);
         //Populating list with intruction items
-        m_listOfInstructions = InstructionsManager.getAllInstructions();
+        m_listOfInstructions = InstructionsListManager.getAllInstructions();
         //we have to create an adapter that will take care of putting our 'objects'
         //into a view inside listView. Nothing custom here. Just had to override toString() of
         //Instruction because this is the class that the adapter calls by default to populate the

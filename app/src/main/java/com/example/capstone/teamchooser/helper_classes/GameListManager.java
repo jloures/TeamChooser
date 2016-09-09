@@ -1,9 +1,7 @@
-package com.example.capstone.teamchooser.helperClasses;
+package com.example.capstone.teamchooser.helper_classes;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,26 +10,26 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.capstone.teamchooser.CreateOrEditGameActivity;
-import com.example.capstone.teamchooser.GameListActivity;
+import com.example.capstone.teamchooser.PlayerListActivity;
 import com.example.capstone.teamchooser.R;
 
 import java.util.ArrayList;
 
 //Superclass for games. It will take care of generating the gameId as
 //well as keeping track of the listOfGames
-public class GamesManager extends BaseAdapter {
+public class GameListManager extends BaseAdapter {
 
     //This variable will hold all the games
     //TODO make sure this data is persistent
     private static ArrayList<Game> m_listOfGames = null;
     //We need this to keep track of our gameIds
-    private static long m_numberOfGames = 0;
+    private static long m_numberOfGamesCreated = 0;
     //This is the context of our GameListActivity
-    private Context m_context = null;
+    private static Context m_context = null;
     //Our inflater to add our row view to the the list view
     private static LayoutInflater m_inflater = null;
 
-    public GamesManager( Context context ) {
+    public GameListManager(Context context ) {
         m_context = context;
         m_inflater = (LayoutInflater) m_context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
@@ -75,8 +73,16 @@ public class GamesManager extends BaseAdapter {
         }
     }
 
+    public static void addPlayerToGameById( long gameId, Player player ) {
+        getGameById(gameId).addPlayer(player);
+    }
+
+    public static void removePlayerFromGameById( long gameId, Player player ) {
+        getGameById(gameId).removePlayer(player);
+    }
+
     public static long generateGameId() {
-        return ++m_numberOfGames;
+        return ++m_numberOfGamesCreated;
     }
 
     //These are the methods that must be overriden in order to inherit the class BaseAdapter
@@ -105,13 +111,24 @@ public class GamesManager extends BaseAdapter {
         //Check if we need to create our view (first time, a.k.a view recycling)
         View rowView = convertView;
         if( rowView == null ) {
-            rowView = m_inflater.inflate(R.layout.game_list_row_item,null);
+            rowView = m_inflater.inflate(R.layout.generic_custom_row_item,null);
         }
-        TextView gameName = (TextView) rowView.findViewById(R.id.game_list_row_item_game_name_text);
+        //Setting an onClick handler for the entire row
+        rowView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent( m_context, PlayerListActivity.class);
+                //passing game info to the activity
+                intent.putExtra("gameId", Long.toString(game.getGameId()));
+                m_context.startActivity(intent);
+            }
+        });
+
+        TextView gameName = (TextView) rowView.findViewById(R.id.generic_row_item_name);
         //Set the text in the TextView to be that of the game
         gameName.setText(game.getGameName());
         //Set the image to be that of the info
-        ImageView infoIcon = (ImageView) rowView.findViewById(R.id.game_list_row_item_info_icon);
+        ImageView infoIcon = (ImageView) rowView.findViewById(R.id.generic_row_item_info);
         infoIcon.setImageResource(R.drawable.get_info_white);
         infoIcon.setOnClickListener(new View.OnClickListener() {
             @Override

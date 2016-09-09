@@ -16,8 +16,8 @@ import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 
-import com.example.capstone.teamchooser.helperClasses.Game;
-import com.example.capstone.teamchooser.helperClasses.GamesManager;
+import com.example.capstone.teamchooser.helper_classes.Game;
+import com.example.capstone.teamchooser.helper_classes.GameListManager;
 
 import java.util.Objects;
 
@@ -64,7 +64,6 @@ public class CreateOrEditGameActivity extends AppCompatActivity {
         ab.setDisplayHomeAsUpEnabled(true);
         //Making the back button custom ( in this case changing the color to white )
         ab.setHomeAsUpIndicator(R.drawable.back_button_white);
-
 
         //Setting visibility of switch to gone (should only show up once super
         //optimizer switch is on
@@ -155,7 +154,7 @@ public class CreateOrEditGameActivity extends AppCompatActivity {
     }
 
     private void deleteGame() {
-        GamesManager.deleteGameById( m_gameId );
+        GameListManager.deleteGameById( m_gameId );
         this.returnToGameList();
     }
 
@@ -171,7 +170,7 @@ public class CreateOrEditGameActivity extends AppCompatActivity {
             return;
         }
        if( this.m_isNewActivity || isDuplicate ) {
-           GamesManager.addGame(
+           GameListManager.addGame(
                 new Game(
                     m_gameName,
                     m_teamAName,
@@ -183,7 +182,7 @@ public class CreateOrEditGameActivity extends AppCompatActivity {
            );
        } else {
            //We're referencing the game. Custom objects in java are references
-           Game game = GamesManager.getGameById( m_gameId );
+           Game game = GameListManager.getGameById( m_gameId );
            game.setAllProperties(
                m_gameName,
                m_teamAName,

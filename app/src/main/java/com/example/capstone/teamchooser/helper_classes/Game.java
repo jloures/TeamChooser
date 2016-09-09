@@ -1,8 +1,11 @@
-package com.example.capstone.teamchooser.helperClasses;
+package com.example.capstone.teamchooser.helper_classes;
 
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 //Pretty straightforward no need for comments here :P
-public class Game {
+public final class Game {
 
     private String m_gameName = null;
     private String m_teamAName = null;
@@ -11,6 +14,7 @@ public class Game {
     private Boolean m_isBODCount;
     private Boolean m_isUsingBalanceODRatings;
     private long m_gameId;
+    private ArrayList<Player> m_listOfPlayers = null;
 
     public Game(
         String gameName,
@@ -26,6 +30,25 @@ public class Game {
         this.m_isBODCount = isBODCount;
         this.m_isUsingSO = isUsingSO;
         this.m_isUsingBalanceODRatings = isUsingBalanceODRatings;
+    }
+
+    public ArrayList<Player> getAllPlayers() {
+        if( m_listOfPlayers == null ) {
+            m_listOfPlayers = new ArrayList<>();
+        }
+        return m_listOfPlayers;
+    }
+
+    public void setAllPlayers( ArrayList<Player> listOfPlayers ) {
+        m_listOfPlayers = listOfPlayers;
+    }
+
+    public void addPlayer( Player player ) {
+        m_listOfPlayers.add(player);
+    }
+
+    public void removePlayer( Player player ){
+        m_listOfPlayers.remove(player);
     }
 
     public Boolean isUsingBalanceODRatings() {

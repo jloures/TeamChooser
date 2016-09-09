@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        style="@style/ActionBarBaseTheme"
+        android:id="@+id/player_list_toolbar"
+        app:titleTextColor="@android:color/white" />
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/player_list_toolbar">
+        <ListView
+            android:id="@+id/player_list_list_view"
+            android:drawSelectorOnTop="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/no_players_text"
+            android:id="@+id/no_players_text_View"
+            android:layout_gravity="center_horizontal|top"
+            android:layout_marginTop="200dip" />
+    </FrameLayout>
+
+</RelativeLayout>

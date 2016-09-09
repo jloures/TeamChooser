@@ -1,4 +1,4 @@
-package com.example.capstone.teamchooser.helperClasses;
+package com.example.capstone.teamchooser.helper_classes;
 
 import java.io.Serializable;
 

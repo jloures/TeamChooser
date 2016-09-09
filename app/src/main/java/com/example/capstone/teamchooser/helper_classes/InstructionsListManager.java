@@ -1,11 +1,11 @@
-package com.example.capstone.teamchooser.helperClasses;
+package com.example.capstone.teamchooser.helper_classes;
 
 import java.util.ArrayList;
 
 //We will be using this class to read the instructions from a file and add it
 //the different sections to the list in AppInfo
 
-public class InstructionsManager {
+public class InstructionsListManager {
     private static ArrayList<Instruction> m_instructionsList = null;
 
     public static ArrayList<Instruction> getAllInstructions() {

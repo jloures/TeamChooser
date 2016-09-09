@@ -7,8 +7,8 @@ import android.text.method.ScrollingMovementMethod;
 import android.util.TypedValue;
 import android.widget.TextView;
 
-import com.example.capstone.teamchooser.helperClasses.Instruction;
-import com.example.capstone.teamchooser.helperClasses.TeamChooserActivity;
+import com.example.capstone.teamchooser.helper_classes.Instruction;
+import com.example.capstone.teamchooser.helper_classes.TeamChooserActivity;
 
 public class InstructionActivity extends TeamChooserActivity {
 
@@ -39,7 +39,7 @@ public class InstructionActivity extends TeamChooserActivity {
         ab.setHomeAsUpIndicator(R.drawable.back_button_white);
         TextView tv = (TextView) findViewById(R.id.instruction_description);
         tv.setText(m_instruction.getDescription());
-        tv.setTextSize(TypedValue.COMPLEX_UNIT_DIP, this.m_fontSize);
+        tv.setTextSize(TypedValue.COMPLEX_UNIT_DIP, this.getFontSize());
         //Lets make sure that the TextView element is scrollable
         tv.setMovementMethod(new ScrollingMovementMethod());
     }
