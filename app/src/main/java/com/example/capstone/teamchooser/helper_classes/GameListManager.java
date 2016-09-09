@@ -113,7 +113,7 @@ public class GameListManager extends BaseAdapter {
         if( rowView == null ) {
             rowView = m_inflater.inflate(R.layout.generic_custom_row_item,null);
         }
-        //Setting an onClick handler for the entire row
+        /*//Setting an onClick handler for the entire row
         rowView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -122,12 +122,12 @@ public class GameListManager extends BaseAdapter {
                 intent.putExtra("gameId", Long.toString(game.getGameId()));
                 m_context.startActivity(intent);
             }
-        });
+        });*/
 
         TextView gameName = (TextView) rowView.findViewById(R.id.generic_row_item_name);
         //Set the text in the TextView to be that of the game
         gameName.setText(game.getGameName());
-        //Set the image to be that of the info
+        /*//Set the image to be that of the info
         ImageView infoIcon = (ImageView) rowView.findViewById(R.id.generic_row_item_info);
         infoIcon.setImageResource(R.drawable.get_info_white);
         infoIcon.setOnClickListener(new View.OnClickListener() {
@@ -147,7 +147,7 @@ public class GameListManager extends BaseAdapter {
                 intent.putExtra("isBalanceODRatings", game.isUsingBalanceODRatings() ? "true" : "false");
                 m_context.startActivity(intent);
             }
-        });
+        });*/
         return rowView;
     }
 }
